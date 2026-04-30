@@ -198,7 +198,6 @@ dialog {
   gap: 20px;
   align-items: center;
   justify-content: space-between;
-  display: flex;
   flex-direction: column;
 }
 .dialog {
