@@ -141,15 +141,16 @@ dialog {
 .button:hover::before {
   transform: scaleX(1);
 }
+.button:focus {
+  outline: none;
+}
 
 .button-like {
   padding: 0 4px;
   border: 2px solid black;
   display: flex;
-  align-items: center;
   max-width: 130px;
   width: 100%;
-  display: flex;
   justify-content: center;
   align-items: center;
   position: relative;
@@ -158,9 +159,7 @@ dialog {
     transition: box-shadow 0.3s ease;
   }
 }
-.button-like:focus {
-  outline: none;
-}
+
 .button:focus-visible {
   border: 2px solid black;
   transition: border-color 0.3s;
@@ -192,7 +191,6 @@ dialog {
 }
 .button-save:focus {
   box-shadow: 0 4px 5px black;
-  outline: none;
 }
 
 .dialog__content {
@@ -200,6 +198,8 @@ dialog {
   gap: 20px;
   align-items: center;
   justify-content: space-between;
+  display: flex;
+  flex-direction: column;
 }
 .dialog {
   max-width: 353px;
@@ -217,10 +217,7 @@ dialog {
   backdrop-filter: blur(10px);
   background-color: rgba(0, 0, 0, 0.395);
 }
-.dialog__content {
-  display: flex;
-  flex-direction: column;
-}
+
 .dialog__content-question {
   display: flex;
   align-items: center;
@@ -271,5 +268,8 @@ dialog {
 @media (width <= 375px) {
   .header {
     height: 327px;
+  }
+  .button-save {
+    flex-direction: column;
   }
 }
