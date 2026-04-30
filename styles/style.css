@@ -10,16 +10,6 @@
 
 */
 
-svg {
-  overflow: visible;
-}
-button,
-dialog {
-  background-color: transparent;
-  border: none;
-  padding: 0;
-  margin: 0;
-}
 .page {
   min-inline-size: 320px;
   min-block-size: 100dvb;
@@ -33,11 +23,11 @@ dialog {
 
 .header {
   background-color: white;
-  font-family: var(--font-accent);
+  font-family: var(--font-accent), sans-serif;
   outline: 2px solid black;
   margin: 100px auto;
   width: var(--header-container);
-  height: 368px;
+  padding: 130px 0;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -71,6 +61,7 @@ dialog {
 .section_image-wrapper {
   border-top: 2px solid black;
   border-bottom: 2px solid black;
+  position: relative;
 }
 .section-image {
   width: clamp(371px, 100%, 696px);
@@ -78,9 +69,9 @@ dialog {
 }
 .section-label {
   position: absolute;
-  top: 55px;
+  top: 25px;
   right: 25px;
-  font-family: var(--font-accent);
+  font-family: var(--font-accent), sans-serif;
   font-size: 14px;
   mix-blend-mode: hard-light;
   opacity: 0.6;
@@ -94,6 +85,7 @@ dialog {
 @supports ((text-stroke: 1px white) or (-webkit-text-stroke: 1px white)) {
   .section-label {
     -webkit-text-stroke: 0.25px white;
+    text-shadow: none;
   }
 }
 
@@ -107,6 +99,7 @@ dialog {
   display: flex;
   flex-direction: column;
   gap: 25px;
+  line-height: 21px;
 }
 .section-description {
   font-size: 18px;
@@ -141,7 +134,7 @@ dialog {
 .button:hover::before {
   transform: scaleX(1);
 }
-.button:focus {
+button:focus {
   outline: none;
 }
 
@@ -159,28 +152,37 @@ dialog {
     transition: box-shadow 0.3s ease;
   }
 }
-
-.button:focus-visible {
+.card__icon-button {
+  border: 2px solid transparent;
+  width: 38px;
+  height: 38px;
+}
+.card__icon-button:focus-visible {
   border: 2px solid black;
   transition: border-color 0.3s;
 }
 
 .button__text {
-  font-family: var(--font-accent);
+  font-family: var(--font-accent), sans-serif;
   font-size: 14px;
   mix-blend-mode: difference;
   color: white;
+}
+.button-ok {
+  text-transform: uppercase;
 }
 .button__icon {
   mix-blend-mode: difference;
   fill: white;
 }
-
 .wrapper__button {
   display: flex;
   justify-content: center;
 }
-
+.floppy__icon {
+  width: 21px;
+  height: 21px;
+}
 .button-save {
   position: relative;
   padding: 15px 20px;
@@ -221,54 +223,88 @@ dialog {
   display: flex;
   align-items: center;
   gap: 20px;
-  font-family: var(--font-accent);
+  font-family: var(--font-accent), sans-serif;
   font-size: 14px;
-  margin-bottom: 20px;
 }
-
+.dialog__content-question-text {
+  text-transform: uppercase;
+  line-height: 150%;
+}
 .dialog__button {
   border: 2px solid black;
   width: 100%;
-  font-family: var(--font-accent);
+  font-family: var(--font-accent), sans-serif;
   padding: 12.5px 0;
 }
 
-.preparation {
+.filter-blur {
   filter: blur(10px);
 }
 
-.clean-slate {
-  filter: hue-rotate(90deg);
+.filter-blur-sm {
+  filter: blur(4px);
 }
 
-.doubts {
-  filter: sepia(0.8) contrast(120%) brightness(0.9);
+.filter-blur-lg {
+  filter: blur(20px);
 }
 
-.ideal {
-  filter: hue-rotate(270deg);
-}
-
-.confederate {
-  filter: contrast(200%);
-}
-
-.strategy {
-  filter: hue-rotate(300deg) saturate(300%);
-}
-
-.demotivation {
+.filter-grayscale {
   filter: grayscale(1);
 }
 
-.here {
+.filter-grayscale-50 {
+  filter: grayscale(0.5);
+}
+
+.filter-sepia {
+  filter: sepia(0.8);
+}
+
+.filter-hue-rotate-90 {
+  filter: hue-rotate(90deg);
+}
+
+.filter-hue-rotate-270 {
+  filter: hue-rotate(270deg);
+}
+
+.filter-hue-rotate-300 {
+  filter: hue-rotate(300deg);
+}
+
+.filter-contrast {
   filter: contrast(200%);
 }
+
+.filter-contrast-150 {
+  filter: contrast(150%);
+}
+
+.filter-brightness-90 {
+  filter: brightness(0.9);
+}
+
+.filter-sepia-contrast {
+  filter: sepia(0.8) contrast(120%) brightness(0.9);
+}
+
+.filter-hue-saturate {
+  filter: hue-rotate(300deg) saturate(300%);
+}
+
 @media (width <= 375px) {
   .header {
-    height: 327px;
+    padding: 120px 0;
   }
   .button-save {
     flex-direction: column;
+  }
+  .floppy__icon {
+    width: 28px;
+    height: 28px;
+  }
+  .dialog {
+    padding: 30px 40px;
   }
 }
