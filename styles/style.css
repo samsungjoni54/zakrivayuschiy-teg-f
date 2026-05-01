@@ -147,6 +147,10 @@ button:focus {
   justify-content: center;
   align-items: center;
   position: relative;
+}
+.button-like,
+.button-save,
+.dialog__button--ok {
   &:focus {
     box-shadow: 2px 2px black;
     transition: box-shadow 0.3s ease;
@@ -191,9 +195,6 @@ button:focus {
   align-items: center;
   gap: 8px;
 }
-.button-save:focus {
-  box-shadow: 0 4px 5px black;
-}
 
 .dialog__content {
   display: flex;
@@ -225,6 +226,9 @@ button:focus {
   gap: 20px;
   font-family: var(--font-accent), sans-serif;
   font-size: 14px;
+}
+.dialog__content-question svg {
+  flex-shrink: 0;
 }
 .dialog__content-question-text {
   text-transform: uppercase;
